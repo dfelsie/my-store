@@ -1,6 +1,6 @@
 import { useState, createContext, useContext } from "react";
 
-import { initiateCheckout } from "../lib/payments.js";
+import { initiateCheckout } from "../lib/payment.js";
 
 import products from "../products.json";
 

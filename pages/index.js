@@ -2,11 +2,11 @@ import Head from "next/head";
 import { FaShoppingCart } from "react-icons/fa";
 import styles from "../styles/Home.module.css";
 
-import { initiateCheckout } from "../lib/payments.js";
+import { initiateCheckout } from "../lib/payment";
 
-import useCart from "../hooks/use-cart.solution.js";
+import { useCart } from "../hooks/use-cart";
 
-import products from "../../shared/products.json";
+import products from "../products.json";
 
 export default function Home() {
   const { subtotal, quantity, addToCart } = useCart();
@@ -41,7 +41,7 @@ export default function Home() {
             <strong>Items:</strong> {quantity}
           </li>
           <li>
-            <strong>Total:</strong> ${subtotal}
+            <strong>Total:</strong> ${subtotal.toFixed(2)}
           </li>
           <li>
             <button
@@ -60,7 +60,7 @@ export default function Home() {
               product;
             return (
               <li key={id} className={styles.card}>
-                <a href="#">
+                <a>
                   <img src={image} alt={title} />
                   <h3>{title}</h3>
                   <p>${price}</p>

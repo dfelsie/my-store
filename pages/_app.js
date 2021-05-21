@@ -2,12 +2,17 @@ import "../styles/globals.css";
 import {
   CartContext,
   useCartState,
-} from "../hooks/use-cart.solution.js";
+} from "../hooks/use-cart.js";
+import Nav from "../components/Nav/Nav";
 
 function MyApp({ Component, pageProps }) {
-  <CartContext.Provider value={cart}>
-    return <Component {...pageProps} />
-  </CartContext.Provider>;
+  const cart = useCartState();
+  return (
+    <CartContext.Provider value={cart}>
+      <Nav />
+      <Component {...pageProps} />
+    </CartContext.Provider>
+  );
 }
 
 export default MyApp;
